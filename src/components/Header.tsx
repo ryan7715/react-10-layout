@@ -35,7 +35,8 @@ function Header() {
           <Link to={"/about"}>About</Link>
         </Nav>
         <NavRight>
-          {/*<Link to={"/auth/login"}>로그인</Link>*/}
+          <Link to={"/auth/login"}>로그인</Link>
+          <Link to={"/auth/signup"}>회원가입</Link>
           <button>테마토글</button>
         </NavRight>
       </Head>
