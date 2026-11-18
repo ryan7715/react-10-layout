@@ -18,7 +18,7 @@ function MainLayout ({ toggleTheme }: { toggleTheme: () => void}) {
 
   return (
     <Wrap>
-      <Header />
+      <Header toggleTheme={toggleTheme} />
       <Outlet />
       <Footer />
     </Wrap>

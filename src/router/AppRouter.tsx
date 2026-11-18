@@ -19,7 +19,7 @@ const AppRouter = (toggleTheme: () => void) => {
 
 
     {
-      element: <MainLayout toggleTheme={{toggleTheme}} />,
+      element: <MainLayout toggleTheme={toggleTheme} />,
       path: "/",
       children: [
         { index: true, element: <Home /> }, // Home => "/"
