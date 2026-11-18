@@ -6,7 +6,7 @@ import Login from "../pages/auth/Login.tsx";
 import SignUp from "../pages/auth/Sign up.tsx";
 import AuthLayout from "../layouts/AuthLayout.tsx";
 
-const AppRouter = () => {
+const AppRouter = (toggleTheme: () => void) => {
   const routes: RouteObject[] = [
     {
       element: <AuthLayout />,
@@ -19,7 +19,7 @@ const AppRouter = () => {
 
 
     {
-      element: <MainLayout />,
+      element: <MainLayout toggleTheme={{toggleTheme}} />,
       path: "/",
       children: [
         { index: true, element: <Home /> }, // Home => "/"

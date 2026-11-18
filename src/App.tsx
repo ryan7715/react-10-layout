@@ -2,6 +2,7 @@
 import { RouterProvider } from "react-router";
 import GlobalStyle from "./Styles/GlobalStyle.ts";
 import AppRouter from "./router/AppRouter.tsx";
+import {useState} from "react";
 
 
 /*
@@ -9,10 +10,19 @@ import AppRouter from "./router/AppRouter.tsx";
 */
 
 function App() {
-  return (
+    const [theme, setTheme] = useState<"light" | "dark">("light");
+    // Props를 통해 setTheme를 내릴 것인가?
+
+    const toggleTheme: () => void = () => {
+        if (theme === "light") setTheme("dark");
+        else setTheme("light");
+
+    };
+
+    return (
     <>
       <GlobalStyle />
-        <RouterProvider router={AppRouter()} />
+        <RouterProvider router={AppRouter(toggleTheme)} />
     </>
   );
 }

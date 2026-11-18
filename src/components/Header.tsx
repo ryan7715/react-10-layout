@@ -25,7 +25,7 @@ const NavRight = styled.div`
   align-items: center;
 `;
 
-function Header() {
+function Header({ toggleTheme }: {toggleTheme: () => void }) {
   return (
     <>
       <Head>
