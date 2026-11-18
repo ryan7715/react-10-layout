@@ -6,12 +6,13 @@ const Head = styled.header`
   justify-content: space-between;
   align-items: center;
   height: 64px;
-  background-color: #f4f4f4;
+  background-color: ${props => props.theme.color.muted};
 `;
 
 const Logo = styled.div`
   font-size: 20px;
   font-weight: 700;
+  color: ${props => props.theme.color.primary};
 `;
 
 const Nav = styled.nav`

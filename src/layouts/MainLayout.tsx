@@ -7,6 +7,8 @@ const Wrap = styled.div`
   display: flex;
   min-height: 100dvh;
   flex-direction: column;
+  background-color: ${props => props.theme.color.background};
+    color: ${props => props.theme.color.text};
 `;
 
 
