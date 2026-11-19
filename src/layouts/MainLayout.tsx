@@ -2,6 +2,7 @@ import Header from "../components/Header.tsx";
 import { Outlet,} from "react-router";
 import Footer from "../components/Footer.tsx";
 import styled from "styled-components";
+import { type Dispatch, type SetStateAction } from "react";
 
 const Wrap = styled.div`
   display: flex;
@@ -12,10 +13,15 @@ const Wrap = styled.div`
 `;
 
 
-function MainLayout ({ toggleTheme }: { toggleTheme: () => void}) {
-  // Outlet
-  // 이 자리에 Routes의 내용이 들어올 자리라는 걸 표현하는 기능
-
+function MainLayout({
+  toggleTheme,
+  theme,
+  setTheme,
+}: {
+  toggleTheme: () => void;
+  theme: "light | dark";
+  setTheme: Dispatch<SetStateAction<"light" | "dark">>;
+}) {
   return (
     <Wrap>
       <Header toggleTheme={toggleTheme} />
