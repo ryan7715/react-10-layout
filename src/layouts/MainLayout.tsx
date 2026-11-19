@@ -2,7 +2,6 @@ import Header from "../components/Header.tsx";
 import { Outlet,} from "react-router";
 import Footer from "../components/Footer.tsx";
 import styled from "styled-components";
-import { type Dispatch, type SetStateAction } from "react";
 
 const Wrap = styled.div`
   display: flex;
@@ -13,18 +12,10 @@ const Wrap = styled.div`
 `;
 
 
-function MainLayout({
-  toggleTheme,
-  theme,
-  setTheme,
-}: {
-  toggleTheme: () => void;
-  theme: "light | dark";
-  setTheme: Dispatch<SetStateAction<"light" | "dark">>;
-}) {
+function MainLayout() {
   return (
     <Wrap>
-      <Header toggleTheme={toggleTheme} />
+      <Header />
       <Outlet />
       <Footer />
     </Wrap>

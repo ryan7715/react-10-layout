@@ -1,5 +1,9 @@
 import { Link } from "react-router";
 import styled from "styled-components";
+import {useContext} from "react";
+import {ThemeContext} from "../contexts/theme/ThemeContext.tsx";
+import { FaMoon, FaSun } from "react-icons/fa";
+
 
 const Head = styled.header`
   display: flex;
@@ -26,7 +30,12 @@ const NavRight = styled.div`
   align-items: center;
 `;
 
-function Header({ toggleTheme }: {toggleTheme: () => void }) {
+function Header() {
+  // 3단계, 컨택스트 사용 : useContext(사용햐애 되는 컨택스트)
+  // ConText를 사용할 때에는 'null'이 나올 수 있음 => React가 제래로 켜지지 못 했을 때
+  const themeContext = useContext(ThemeContext);
+  if (!themeContext) throw new Error("Provider 안에서 사용해주세요.")
+
   return (
     <>
       <Head>
@@ -38,7 +47,13 @@ function Header({ toggleTheme }: {toggleTheme: () => void }) {
         <NavRight>
           <Link to={"/auth/login"}>로그인</Link>
           <Link to={"/auth/signup"}>회원가입</Link>
-          <button onClick={toggleTheme}>테마토글</button>
+          <button onClick={themeContext.toggleTheme}>
+            {themeContext.theme === "dark" ? (
+              <FaMoon size={25} color={"#D36539"} />
+            ) : (
+              <FaSun size={25} color={"#D36539"} />
+            )}
+          </button>
         </NavRight>
       </Head>
       {/* Head 끝 */}

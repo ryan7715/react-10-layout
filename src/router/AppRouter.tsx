@@ -5,13 +5,8 @@ import MainLayout from "../layouts/MainLayout.tsx";
 import Login from "../pages/auth/Login.tsx";
 import SignUp from "../pages/auth/Sign up.tsx";
 import AuthLayout from "../layouts/AuthLayout.tsx";
-import { type Dispatch, type SetStateAction } from "react";
 
-const AppRouter = (
-  toggleTheme: () => void,
-  theme: "light | dark",
-  setTheme: Dispatch<SetStateAction<"light" | "dark">>,
-) => {
+const AppRouter = () => {
   const routes: RouteObject[] = [
     {
       element: <AuthLayout />,
@@ -24,11 +19,7 @@ const AppRouter = (
 
     {
       element: (
-        <MainLayout
-          toggleTheme={toggleTheme}
-          theme={theme}
-          setTheme={setTheme}
-        />
+        <MainLayout />
       ),
       path: "/",
       children: [
